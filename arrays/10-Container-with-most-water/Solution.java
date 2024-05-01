@@ -1,43 +1,43 @@
 package com.sandbox;
 
+//int[] numbers = {1,8,6,2,5,4,8,3,7};
+
 public class Solution {
-  public int mostWater(final int[] numbers) {
-    assert(numbers.length > 1);
+  public int mostWater(final int[] heights) {
+    assert(heights.length > 1);
+
     int first = 0;
     int second = 1;
-    int volume = 0;
-    Integer maxVolume = null;
-    
+    int maxVolume = 0;
+    int volume;
+
     while (first < second) {
-      System.out.printf("first: %d, second: %d\n", first, second);
-      volume = getVolume(first, second, numbers[first], numbers[second]);
-      if (maxVolume == null) {
+      volume = getVolume(first, second, heights[first], heights[second]);
+      if (volume > maxVolume) {
         maxVolume = volume;
-      } else {
-        if (volume > maxVolume) {
-          maxVolume = volume;
-        }
       }
-      
+
       second++;
-      if (second == numbers.length) {
+      if (second == heights.length) {
         first++;
         second = first + 1;
       }
-      
-      if (first == numbers.length - 2 && second == numbers.length - 1) {
+
+      if (first == heights.length - 1) {
         break;
       }
     }
-    
-    return maxVolume.intValue();
+
+    return maxVolume;
   }
-  
+
   private int getVolume(int startIndex, int endIndex, int startValue, int endValue) {
     assert(startIndex < endIndex);
+
     int delta = endIndex - startIndex;
-    int min = Math.min(startValue, endValue);
-    
-    return min * delta;
+    int minHeight = Math.min(startValue, endValue);
+
+    return minHeight * delta;
   }
 }
+
