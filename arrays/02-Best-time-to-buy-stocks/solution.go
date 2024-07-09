@@ -1,6 +1,10 @@
 package main
 
 func BestTimeToBuyStocks(prices []int) int {
+	if len(prices) < 2 {
+		return 0
+	}
+
 	start := 0
 	end := 1
 	maxProfit := 0
