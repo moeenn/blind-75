@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func productExcept(nums []int, idx int) int {
 	sum := 1
 
@@ -18,6 +14,7 @@ func productExcept(nums []int, idx int) int {
 	return sum
 }
 
+// TODO: optimizie to run in O(n) time
 func ProductOfArrayExcept(nums []int) []int {
 	max := len(nums)
 	result := []int{}
@@ -27,10 +24,4 @@ func ProductOfArrayExcept(nums []int) []int {
 	}
 
 	return result
-}
-
-func main() {
-	nums := []int{1, 2, 3, 4}
-	result := ProductOfArrayExcept(nums)
-	fmt.Println(result)
 }
