@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func arrayProduct(nums []int, startIdx int, endIdx int) int {
 	product := 1
 	for i := startIdx; i <= endIdx; i++ {
@@ -37,10 +33,4 @@ func MaxProductSubarray(nums []int) int {
 	}
 
 	return maxProduct
-}
-
-func main() {
-	input := []int{2, 3, -2, 4}
-	result := MaxProductSubarray(input)
-	fmt.Println(result)
 }
