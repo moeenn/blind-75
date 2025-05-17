@@ -33,4 +33,10 @@ func TestStack(t *testing.T) {
 	popped := stack.Pop()
 	assert.Equal(t, 50, *popped)
 	assert.Equal(t, uint(4), stack.Size())
+
+	// remove all.
+	for range 5 {
+		stack.Pop()
+	}
+	assert.True(t, stack.Size() == 0)
 }
