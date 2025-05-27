@@ -5,7 +5,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 # Topics
 
 ## Array
-
 - [x] [Two Sum](https://leetcode.com/problems/two-sum/)
 - [x] [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [x] [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
@@ -20,7 +19,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Binary
-
 - [ ] [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
 - [ ] [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
 - [ ] [Counting Bits](https://leetcode.com/problems/counting-bits/)
@@ -30,7 +28,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Dynamic Programming
-
 - [ ] [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 - [ ] [Coin Change](https://leetcode.com/problems/coin-change/)
 - [ ] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
@@ -46,7 +43,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Graph
-
 - [ ] [Clone Graph](https://leetcode.com/problems/clone-graph/)
 - [ ] [Course Schedule](https://leetcode.com/problems/course-schedule/)
 - [ ] [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)
@@ -59,7 +55,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Interval
-
 - [ ] [Insert Interval](https://leetcode.com/problems/insert-interval/)
 - [ ] [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [ ] [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
@@ -69,7 +64,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Linked List
-
 - [ ] [Reverse a Linked List](https://leetcode.com/problems/reverse-linked-list/)
 - [ ] [Detect Cycle in a Linked List](https://leetcode.com/problems/linked-list-cycle/)
 - [ ] [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
@@ -80,7 +74,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Matrix
-
 - [ ] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
 - [ ] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
 - [ ] [Rotate Image](https://leetcode.com/problems/rotate-image/)
@@ -89,7 +82,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## String
-
 - [ ] [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [ ] [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 - [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
@@ -122,7 +114,6 @@ Solutions to the famous Leetcode Blind-75 problems.
 ---
 
 ## Heap
-
 - [ ] [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 - [ ] [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 - [ ] [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)

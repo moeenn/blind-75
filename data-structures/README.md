@@ -3,7 +3,7 @@
 - [ ] Dynamic stack (using linked-list)
 
 # Queue
-- [ ] Fixed-sized stack
+- [x] Fixed-sized stack
 - [ ] Dynamic stack (using linked-list)
 - [ ] Priority queue
 
