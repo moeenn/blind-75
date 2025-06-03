@@ -20,4 +20,4 @@ class TestTwoSum(TestCase):
     def test_valid(self) -> None:
         for s in self.scenarios:
             got = two_sum(s.nums, s.target)
-            self.assertEqual(got, s.expected)
+            self.assertEqual(list(got), s.expected)

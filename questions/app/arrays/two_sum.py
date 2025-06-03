@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Generator
 
 """
 Given an array of integers `nums` and an integer `target`, return indices of
@@ -33,14 +34,11 @@ class Pair:
     second: int
 
 
-def two_sum(nums: list[int], target: int) -> list[Pair]:
+def two_sum(nums: list[int], target: int) -> Generator[Pair]:
     size = len(nums)
     assert size >= 2
-    result: list[Pair] = []
 
     for a in range(size - 1):
         for b in range(a + 1, size):
             if nums[a] + nums[b] == target:
-                result.append(Pair(a, b))
-
-    return result
+                yield Pair(a, b)
