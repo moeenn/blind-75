@@ -32,12 +32,12 @@ Constraints:
 
 
 def best_time_to_buy_stocks(prices: list[int]) -> int:
-    assert len(prices) >= 2
     size = len(prices)
+    assert size >= 2
     max_profit = 0
 
     for buy_index in range(size - 1):
-        for sell_index in range(buy_index, size):
+        for sell_index in range(buy_index + 1, size):
             profit = prices[sell_index] - prices[buy_index]
             if profit > max_profit:
                 max_profit = profit

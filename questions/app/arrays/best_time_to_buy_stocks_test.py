@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from unittest import TestCase
-from app.arrays.best_time_to_buy_stocks import best_time_to_buy_stocks
+from .best_time_to_buy_stocks import best_time_to_buy_stocks
 
 
 @dataclass
