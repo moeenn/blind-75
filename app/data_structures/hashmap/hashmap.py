@@ -30,6 +30,17 @@ class Hashmap[T]:
                 yield (current_node.key, current_node.value)
                 current_node = current_node.next
 
+    def __traverse_nodes(self) -> Generator[Node[T]]:
+        for i in range(self.capacity):
+            bucket = self.buckets[i]
+            if bucket is None:
+                continue
+
+            current_node = bucket
+            while current_node is not None:
+                yield current_node
+                current_node = current_node.next
+
     def contains(self, key: str) -> bool:
         for k, _ in self.values():
             if k == key:
@@ -79,20 +90,18 @@ class Hashmap[T]:
             new_capacity = self.capacity * 2
             new_buckets: list[Node[T] | None] = [None] * new_capacity
 
-            # TODO: maybe don't recreate nodes from scratch.
-            for k, v in self.values():
-                new_index = Hashmap.hash(k) % new_capacity
+            for node in self.__traverse_nodes():
+                new_index = Hashmap.hash(node.key) % new_capacity
                 bucket = new_buckets[new_index]
-                new_node = Node(key=k, value=v, next=None)
 
                 if bucket is None:
-                    new_buckets[new_index] = new_node
+                    new_buckets[new_index] = node
                 else:
                     current_node = bucket
                     while current_node.next is not None:
                         current_node = current_node.next
 
-                    current_node.next = new_node
+                    current_node.next = node
 
             self.capacity = new_capacity
             self.buckets = new_buckets
