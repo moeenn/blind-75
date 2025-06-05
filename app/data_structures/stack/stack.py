@@ -17,8 +17,10 @@ class Stack[T]:
     def values(self) -> Generator[T]:
         for i in range(self.index):
             value = self.data[i]
-            if value is not None:
-                yield value
+            if value is None:
+                raise Exception(f"unexpected None in data at index {i}")
+
+            yield value
 
     def push(self, value: T) -> None:
         if self.index < self.capacity:
