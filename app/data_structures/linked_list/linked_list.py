@@ -8,12 +8,6 @@ class Node[T]:
     next: Self | None
 
 
-@dataclass
-class ValueWithIndex[T]:
-    index: int
-    value: T
-
-
 class LinkedList[T]:
     head: Node[T] | None
     size: int
@@ -31,15 +25,16 @@ class LinkedList[T]:
             yield current.data
             current = current.next
 
-    def enumerate(self) -> Generator[ValueWithIndex[T]]:
+    def enumerate(self) -> Generator[tuple[int, T]]:
         index = 0
         current = self.head
         if current is None:
             return
 
         while current is not None:
-            yield ValueWithIndex(index, value=current.data)
+            yield (index, current.data)
             current = current.next
+            index += 1
 
     def append(self, value: T) -> None:
         new_node = Node(value, next=None)
@@ -68,9 +63,9 @@ class LinkedList[T]:
         self.size += 1
 
     def at(self, index: int) -> T | None:
-        for entry in self.enumerate():
-            if entry.index == index:
-                return entry.value
+        for idx, value in self.enumerate():
+            if idx == index:
+                return value
 
     def remove(self, index: int) -> bool:
         if index >= self.size:
@@ -90,12 +85,17 @@ class LinkedList[T]:
         i = 0
 
         while current is not None:
-            if index == i and prev is not None:
+            if index == i:
+                # this won't happend because index 0 is already handled above.
+                if prev is None:
+                    return False
+
                 prev.next = current.next
                 self.size -= 1
                 return True
 
             prev = current
+            current = current.next
             i += 1
 
         return False
