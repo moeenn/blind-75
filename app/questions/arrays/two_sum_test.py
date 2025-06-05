@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from unittest import TestCase
-from app.arrays.two_sum import Pair, two_sum
+from .two_sum import Pair, two_sum
 
 
 @dataclass
