@@ -2,26 +2,29 @@ from typing import Generator
 
 
 class Queue[T]:
-    front: int = 0
-    back: int = 0
+    __slots__ = ["front", "back", "capacity", "data"]
+
+    front: int
+    back: int
     capacity: int
     data: list[T | None]
 
     def __init__(self, capacity=5) -> None:
+        self.front = self.back = 0
         self.capacity = capacity
         self.data = [None] * capacity
 
-    def size(self) -> int:
+    def __len__(self) -> int:
         return self.back - self.front
 
     def is_empty(self) -> bool:
-        return self.size() == 0
+        return len(self) == 0
 
     def is_full(self) -> bool:
-        return self.size() == self.capacity
+        return len(self) == self.capacity
 
-    def values(self) -> Generator[T]:
-        for i in range(self.size()):
+    def __iter__(self) -> Generator[T]:
+        for i in range(len(self)):
             value = self.data[i]
             if value is None:
                 raise Exception(f"unexpected None value in data at index {i}")
@@ -36,7 +39,7 @@ class Queue[T]:
 
         # if there is space at the start of the queue, shift all elements forward.
         if self.front != 0:
-            for i in range(self.size()):
+            for i in range(len(self)):
                 self.data[i] = self.data[i + self.front]
 
             self.back -= self.front

@@ -11,15 +11,21 @@ class Node[T]:
 
 
 class Hashmap[T]:
+    __slots__ = ["capacity", "index", "buckets"]
+
     capacity: int
-    size: int = 0
+    index: int
     buckets: list[Node[T] | None]
 
     def __init__(self, capacity: int = 5) -> None:
+        self.index = 0
         self.capacity = capacity
         self.buckets = [None] * capacity
 
-    def values(self) -> Generator[tuple[str, T]]:
+    def __len__(self) -> int:
+        return self.index
+
+    def __iter__(self) -> Generator[tuple[str, T]]:
         for i in range(self.capacity):
             bucket = self.buckets[i]
             if bucket is None:
@@ -42,14 +48,14 @@ class Hashmap[T]:
                 current_node = current_node.next
 
     def contains(self, key: str) -> bool:
-        for k, _ in self.values():
+        for k, _ in self:
             if k == key:
                 return True
 
         return False
 
     def get(self, key: str) -> T | None:
-        for k, v in self.values():
+        for k, v in self:
             if k == key:
                 return v
 
@@ -67,7 +73,7 @@ class Hashmap[T]:
 
         if target_bucket is None:
             self.buckets[index] = new_node
-            self.size += 1
+            self.index += 1
         else:
             # traverse the target bucket.
             current_node = target_bucket
@@ -80,12 +86,12 @@ class Hashmap[T]:
                 if current_node.next is None:
                     # append to last node.
                     current_node.next = new_node
-                    self.size += 1
+                    self.index += 1
                     break
 
                 current_node = current_node.next
 
-        if self.size == self.capacity:
+        if self.index == self.capacity:
             # resize operation.
             new_capacity = self.capacity * 2
             new_buckets: list[Node[T] | None] = [None] * new_capacity
@@ -119,11 +125,11 @@ class Hashmap[T]:
                 if current_node.key == key:
                     if prev_node is None:
                         self.buckets[i] = current_node.next
-                        self.size -= 1
+                        self.index -= 1
                         return True
                     else:
                         prev_node.next = current_node.next
-                        self.size -= 1
+                        self.index -= 1
                         return True
 
                 prev_node = current_node

@@ -2,6 +2,8 @@ from typing import Generator
 
 
 class Stack[T]:
+    __slots__ = ["capacity", "index", "data"]
+
     capacity: int
     index: int
     data: list[T | None]
@@ -11,10 +13,10 @@ class Stack[T]:
         self.index = 0
         self.data = [None] * capacity
 
-    def size(self) -> int:
+    def __len__(self) -> int:
         return self.index
 
-    def values(self) -> Generator[T]:
+    def __iter__(self) -> Generator[T]:
         for i in range(self.index):
             value = self.data[i]
             if value is None:
