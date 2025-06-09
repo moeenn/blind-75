@@ -1,24 +1,28 @@
 # Stack
-- [x] Fixed-sized stack
-- [ ] Dynamic stack (using linked-list)
+- [x] Dynamic-sized stack
 
 # Queue
-- [x] Fixed-sized stack
-- [ ] Dynamic stack (using linked-list)
-- [ ] Priority queue
+- [x] Dynamic-sized queue
+- [ ] Priority queue (using heap)
+
+# Vector
+- [x] Dynamic-sized Vector
 
 # Linked Lists
 - [x] Singly-linked list
 - [ ] Doubly-linked list
 
 # HashMap
-- [ ] Jenkins Hash
+- [x] Hashmap
 
 # Tree
-- [ ] Binary tree
+- [x] Binary tree
 - [ ] Binary search tree
 - [ ] AVL tree
 - [ ] B-Tree
+
+# Heap
+- [ ] Terminology
 
 # Graphs
 - [ ] Terminology
