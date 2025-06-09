@@ -39,8 +39,6 @@ def max_subarray_product(nums: list[int]) -> int:
     for i in range(size - 1):
         for j in range(i + 1, size):
             product = product_subarray(nums, start=i, end=j)
-            print(i, j, product)
-
             if result is None or product > result:
                 result = product
 
