@@ -6,8 +6,8 @@ from enum import Enum, auto
 @dataclass
 class Node[T]:
     data: T
-    left: Self | None
-    right: Self | None
+    left: Self | None = None
+    right: Self | None = None
 
 
 class TraverseOrder(str, Enum):
@@ -18,10 +18,38 @@ class TraverseOrder(str, Enum):
 
 class BinaryTree[T]:
     __slots__ = ["root"]
-    root: Node[T]
+    root: Node[T] | None
 
-    def __init__(self, root: Node[T]) -> None:
+    def __init__(self, root: Node[T] | None) -> None:
         self.root = root
+
+    @classmethod
+    def from_array(cls, data: list[T]) -> Self:
+        size = len(data)
+        tree = cls(root=None)
+        if size == 0:
+            return tree
+
+        tree.root = Node(data[0])
+        queue: list[Node[T] | None] = [tree.root]
+        i = 1
+
+        while queue and i < size:
+            current = queue.pop(0)
+            if current is None:
+                continue
+
+            if i < size:
+                current.left = Node(data[i])
+                queue.append(current.left)
+            i += 1
+
+            if i < size:
+                current.right = Node(data[i])
+                queue.append(current.right)
+            i += 1
+
+        return tree
 
     def traverse(self, order: TraverseOrder) -> Generator[T]:
         match order:
@@ -67,3 +95,20 @@ class BinaryTree[T]:
             yield from self.__traverse_postorder(node.right)
 
         yield node.data
+
+    # a binary is a full tree when all nodes either have no children
+    # (left, right), or they have exactly two child nodes.
+    def is_full_tree(self) -> bool:
+        def is_full(root: Node[T] | None) -> bool:
+            if root is None:
+                return True
+
+            if root.left is None and root.right is None:
+                return True
+
+            if root.right is not None and root.right is not None:
+                return is_full(root.left) and is_full(root.right)
+
+            return False
+
+        return is_full(self.root)
