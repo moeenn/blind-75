@@ -9,6 +9,7 @@ class Node[T]:
 
 
 class LinkedList[T]:
+    __slots__ = ["head", "size"]
     head: Node[T] | None
     size: int
 
@@ -16,7 +17,7 @@ class LinkedList[T]:
         self.head = None
         self.size = 0
 
-    def values(self) -> Generator[T]:
+    def __iter__(self) -> Generator[T]:
         current = self.head
         if current is None:
             return
@@ -24,6 +25,9 @@ class LinkedList[T]:
         while current is not None:
             yield current.data
             current = current.next
+
+    def __len__(self) -> int:
+        return self.size
 
     def enumerate(self) -> Generator[tuple[int, T]]:
         index = 0

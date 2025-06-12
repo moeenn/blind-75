@@ -11,9 +11,9 @@ class TestLinkedList(TestCase):
         ll.prepend(100)
         ll.prepend(200)
 
-        self.assertEqual(7, ll.size)
+        self.assertEqual(7, len(ll))
 
-        all_elements = list(ll.values())
+        all_elements = list(ll.__iter__())
         expected_values = [200, 100, 1, 2, 3, 4, 5]
         self.assertEqual(expected_values, all_elements)
 
@@ -29,7 +29,7 @@ class TestLinkedList(TestCase):
 
         last = ll.at(7)
         self.assertIsNone(last)
-        self.assertEqual(7, ll.size)
+        self.assertEqual(7, len(ll))
 
         fourth = ll.at(3)
         self.assertEqual(1, fourth)
@@ -39,8 +39,8 @@ class TestLinkedList(TestCase):
 
     def test_ops_on_empty_list(self) -> None:
         ll = LinkedList[int]()
-        self.assertEqual(ll.size, 0)
-        entries = list(ll.values())
+        self.assertEqual(len(ll), 0)
+        entries = list(ll.__iter__())
         self.assertEqual(entries, [])
         enumerated = list(ll.enumerate())
         self.assertEqual(enumerated, [])
