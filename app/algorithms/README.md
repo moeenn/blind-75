@@ -2,7 +2,8 @@
 
 ### Sorting
 
-- [ ] Bubble sort
+- [x] Bubble sort
+- [x] Selection sort
 - [ ] Insertion sort
 - [ ] Merge sort
 - [ ] Quick sort
@@ -17,9 +18,12 @@
 
 ### Recursion
 
-- [ ] Loop using recursion
+- [x] Loop using recursion
+- [x] Factorials
+- [ ] Questions: https://www.techiedelight.com/recursion-practice-problems-with-solutions
 
 
 ### Greedy algorithms
 
 - [ ] Greedy Algorithms
+
