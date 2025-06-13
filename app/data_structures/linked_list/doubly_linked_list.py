@@ -107,4 +107,34 @@ class DoublyLinkedList[T]:
         if index < 0 or index >= self.size:
             return False
 
-        raise Exception("not implemented")
+        if index == 0:
+            if self.head is None:
+                return False
+
+            self.head = self.head.next
+            if self.head is not None:
+                self.head.prev = None
+
+            self.size -= 1
+            return True
+
+        i = 0
+        current = self.head
+        prev: Node[T] | None = None
+
+        if current is not None:
+            while current.next is not None:
+                if i == index:
+                    if prev is not None:
+                        prev.next = current.next
+                        if current.next is not None:
+                            current.next.prev = prev
+
+                    self.size -= 1
+                    return True
+
+                prev = current
+                current = current.next
+                i += 1
+
+        return False
