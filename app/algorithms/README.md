@@ -4,7 +4,7 @@
 
 - [x] Bubble sort
 - [x] Selection sort
-- [ ] Insertion sort
+- [x] Insertion sort
 - [ ] Merge sort
 - [ ] Quick sort
 
