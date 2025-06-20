@@ -3,7 +3,7 @@ def merge(a: list[int], b: list[int]) -> list[int]:
     i = 0
     j = 0
 
-    while i != len(a) and j != len(b):
+    while True:
         if a[i] < b[j]:
             result.append(a[i])
             i += 1
@@ -12,10 +12,12 @@ def merge(a: list[int], b: list[int]) -> list[int]:
             j += 1
 
         if i == len(a):
-            result.append(b[j])
+            result += b[j:]
+            break
 
         if j == len(b):
-            result.append(a[i])
+            result += a[i:]
+            break
 
     return result
 
